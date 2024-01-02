@@ -134,8 +134,8 @@
                     </li>
                     <li>
                       <a class="test" href="../course-master/DataAnalyst.html"
-                      >DataAnalyst</a
-                    >
+                        >DataAnalyst</a
+                      >
                     </li>
                     <li>
                       <a class="test" href="../course-master/content_wr.html"
@@ -199,10 +199,8 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../Pay after payment/index.html"
-                >PAP</a
-              >
-          </li>
+              <a class="nav-link" href="../Pay after payment/index.html">PAP</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link" href="../Baoiam-refer-page-main/index.html"
                 >Refer & Earn</a
@@ -265,6 +263,7 @@
                 <div class="subcomment">
                   <span>
                     <input
+                      id="namebox"
                       class="input-field"
                       type="text"
                       placeholder="Your Name"
@@ -273,6 +272,7 @@
                   </span>
                   <span>
                     <input
+                      id="emailbox"
                       class="input-field"
                       type="email"
                       placeholder="Your Email"
@@ -284,18 +284,16 @@
                 <div class="subcomment">
                   <span>
                     <input
+                      id="phno"
                       class="input-field"
-                      type="number"
-                      min="0"
-                      max="9"
-                      pattern="[0-9]"
+                      type="tel"
                       placeholder="Phone No."
                     />
                     <i class="fa fa-phone icon" aria-hidden="true"></i>
                   </span>
                   <span>
                     <!-- <label for="course" class="label"> courses</label> -->
-                    <select id="cars">
+                    <select id="courseSelection">
                       <option value="Courses">Select Course</option>
                       <option value="Product Development">
                         Product Management
@@ -314,6 +312,7 @@
 
                 <span>
                   <textarea
+                    id="message"
                     name="msg"
                     class="input-field"
                     type="text"
@@ -324,7 +323,7 @@
                   <i class="fa fa-comment icon"></i>
                 </span>
 
-                <div class="submit-btn">
+                <div class="submit-btn" onclick="sendmail()">
                   <button class="contact-btn">Submit</button>
                 </div>
               </div>
@@ -538,6 +537,11 @@
         </div>
       </div>
     </footer>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script
