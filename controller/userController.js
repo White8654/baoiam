@@ -10,8 +10,8 @@ const createUser = async (req, res) => {
     // extract data and file from RequestBody
     const data = JSON.parse(JSON.stringify(req.body));
 
-    let { fname, lname, email, phone, password, address } = data;
-
+    let { username, email, password } = data;
+    //const phone = Math.floor(Math.random() * 9000000000) + 1000000000;
     // checking if user does not enters any data
     if (Object.keys(data) == 0) {
       return res
@@ -35,17 +35,17 @@ const createUser = async (req, res) => {
     //   }
 
     // checking for fname
-    if (!valid.isValid(fname)) {
-      return res
-        .status(400)
-        .send({ status: false, message: "please enter first name" });
-    }
+    // if (!valid.isValid(fname)) {
+    //   return res
+    //     .status(400)
+    //     .send({ status: false, message: "please enter first name" });
+    // }
 
     // checking for lname
-    if (!valid.isValid(lname)) {
+    if (!valid.isValid(username)) {
       return res
         .status(400)
-        .send({ status: false, message: "please enter last name" });
+        .send({ status: false, message: "please enter name" });
     }
 
     // checking for email
@@ -67,25 +67,25 @@ const createUser = async (req, res) => {
         .send({ status: false, message: "Email is already exist" });
     }
 
-    // checking for phone
-    if (!valid.isValid(phone)) {
-      return res
-        .status(400)
-        .send({ status: false, message: "please enter phone no." });
-    }
+    // // checking for phone
+    // if (!valid.isValid(phone)) {
+    //   return res
+    //     .status(400)
+    //     .send({ status: false, message: "please enter phone no." });
+    // }
 
-    if (!valid.isValidMobile(phone)) {
-      return res
-        .status(400)
-        .send({ status: false, message: "please enter valid phone" });
-    }
+    // if (!valid.isValidMobile(phone)) {
+    //   return res
+    //     .status(400)
+    //     .send({ status: false, message: "please enter valid phone" });
+    // }
 
-    const duplicatePhone = await UserModel.findOne({ phone: phone });
-    if (duplicatePhone) {
-      return res
-        .status(400)
-        .send({ status: false, message: "phone is already exist" });
-    }
+    // const duplicatePhone = await UserModel.findOne({ phone: phone });
+    // if (duplicatePhone) {
+    //   return res
+    //     .status(400)
+    //     .send({ status: false, message: "phone is already exist" });
+    // }
 
     // checking for password
     if (!password)
@@ -106,11 +106,8 @@ const createUser = async (req, res) => {
     data.password = hash;
 
     const data1 = {
-      fname: fname,
-      lname: lname,
+      username: username,
       email: email,
-      // profileImage: profileImage,
-      phone: phone,
       password: hash,
     };
 

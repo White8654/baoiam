@@ -1,9 +1,20 @@
 const express = require("express");
+const path = require("path");
 const router = express.Router();
 const userController = require("../controller/userController");
 const mailController = require("../controller/mailController");
 
 const middleWare = require("../middleware/auth");
+
+router.get("/", (req, res) => {
+  // res.json("hiii");
+  res.render("index");
+});
+
+router.get("/dashboard", (req, res) => {
+  const parentDirectory = path.join(__dirname, "..");
+  res.sendFile("index.html");
+});
 
 //===============================userapi============================================//
 
@@ -20,9 +31,6 @@ router.get(
 
 router.post("/getOTP", userController.getOTP);
 router.post("/booksession", userController.booksession);
-router.get("/", (req, res) => {
-  res.sendFile("index.js");
-});
 
 //==============================mail==========================================//
 
@@ -31,5 +39,7 @@ router.post("/mail", mailController.mailSender);
 router.all("/*", (req, res) => {
   res.status(400).send({ status: false, message: "Endpoint is not correct" });
 });
+
+//============================dashboard=============================//
 
 module.exports = router;
