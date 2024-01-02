@@ -56,11 +56,11 @@ section:not(
   padding: 3rem 6%;
   /* margin-top: -40px; */
 }
-.homepage{
+.homepage {
   padding: 1rem 6%;
   margin-top: -40px;
 }
-.women{
+.women {
   padding: 1rem 6%;
   margin-top: -60px;
 }
@@ -2289,4 +2289,21 @@ footer .contact-us p div i {
 
 .fa-xmark {
   font-size: 2rem;
+}
+
+.profileicon {
+  border: 2px solid black;
+  height: 40px;
+  width: 40px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profileicon:hover {
+  border: 2px solid #fa3c23;
+  color: #fa3c23;
 }
