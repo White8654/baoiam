@@ -17,7 +17,7 @@ function signupUser() {
 function loginUser() {
   console.log("login user");
   const data = {
-    username: loginusername.val(),
+    email: loginusername.val(),
     password: loginpassword.val(),
   };
   console.log(data);

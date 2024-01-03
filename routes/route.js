@@ -7,12 +7,6 @@ const mailController = require("../controller/mailController");
 const middleWare = require("../middleware/auth");
 
 router.get("/", (req, res) => {
-  // res.json("hiii");
-  res.render("index");
-});
-
-router.get("/dashboard", (req, res) => {
-  const parentDirectory = path.join(__dirname, "..");
   res.sendFile("index.html");
 });
 

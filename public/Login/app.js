@@ -30,17 +30,15 @@ function loginUser() {
       if (response.status === 200) {
         return response.json();
       } else {
-        // alert("User authentication failed");
-        throw new Error("User authentication failed");
+        alert("User authentication failed");
+        // throw new Error("User authentication failed");
       }
     })
     .then((data) => {
       console.log(data);
       localStorage.setItem("User", JSON.stringify(data));
       // Redirect to the dashboard
-      window.location.href = "/dashboard";
-      // window.location.href =
-      //   "http://localhost:3000/baoiam/public/Baioam-Dashboard/index.html";
+      window.location.reload();
     })
     .catch((error) => {
       alert(error.message);
@@ -53,20 +51,22 @@ function signupUser() {
   const email = document.getElementById("signupemail").value;
   const username = document.getElementById("signupusername").value;
   const password = document.getElementById("signuppassword").value;
+  const data = {
+    username: username,
+    email: email,
+    password: password,
+  };
+  console.log(data);
 
   //const words = username.split(" ");
-  const apiUrl = "http://localhost:3000/register/";
+  const apiUrl = "http://localhost:3000/register";
 
   fetch(apiUrl, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      username: username,
-      email: email,
-      password: password,
-    }),
+    body: JSON.stringify(data),
   })
     .then((response) => {
       if (response.status === 201) {
@@ -81,7 +81,7 @@ function signupUser() {
       console.log(data);
       localStorage.setItem("User", JSON.stringify(data));
       // Redirect to the dashboard
-      window.location.href = "/dashboard";
+      window.location.reload();
       // window.location.href =
       //   "http://localhost:3000/public/Baioam-Dashboard/index.html";
     })

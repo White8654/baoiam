@@ -8,7 +8,8 @@ const jwt = require("jsonwebtoken");
 const createUser = async (req, res) => {
   try {
     // extract data and file from RequestBody
-    const data = JSON.parse(JSON.stringify(req.body));
+    const data = req.body;
+    console.log(data);
 
     let { username, email, password } = data;
     //const phone = Math.floor(Math.random() * 9000000000) + 1000000000;
@@ -126,19 +127,24 @@ const createUser = async (req, res) => {
 
 const loginUser = async function (req, res) {
   try {
+    console.log(req.body);
     let requestBody = req.body;
+    console.log(requestBody);
 
     //Extract Params
     let { email, password } = requestBody;
     if (Object.keys(requestBody) == 0) {
-      return res
-        .status(400)
-        .send({ status: false, message: "Please provide email and password" });
+      return res.status(400).send({
+        status: false,
+        message: "Please provide username and password",
+      });
     }
     if (!email) {
-      return res.status(400).send({ status: false, msg: "Enter your  email" });
+      return res
+        .status(400)
+        .send({ status: false, msg: "Enter your  username" });
     }
-    if (!password) {
+    if (!email) {
       return res
         .status(400)
         .send({ status: false, msg: "Enter your  password" });
@@ -264,6 +270,7 @@ const getOTP = async function (req, res) {
 const booksession = async function (req, res) {
   try {
     const { phoneNumber, enteredOTP, enteredDate } = req.body;
+    console.log(req.body);
 
     if (!enteredDate || !enteredOTP) {
       return res
