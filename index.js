@@ -20,7 +20,9 @@ app.use(express.static("public"));
 app.use(multer().any());
 // "mongodb+srv://poushali26:0U8on2StHP5FNKo2@cluster0.jwwwcc8.mongodb.net/baoiam"
 mongoose
-  .connect("mongodb://0.0.0.0:27017/baoiam")
+  .connect(
+    "mongodb+srv://sohan_666:iiest@cluster0.5k2fixv.mongodb.net/?retryWrites=true&w=majority"
+  )
 
   .then(() => console.log("MongoDb is connected"));
 
